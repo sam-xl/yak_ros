@@ -319,11 +319,6 @@ int main(int argc, char** argv)
   pnh.param<int>("volume_x", volume_x, 640);
   pnh.param<int>("volume_y", volume_y, 640);
   pnh.param<int>("volume_z", volume_z, 640);
-  if (volume_x % 32 != 0 || volume_y % 32 != 0 || volume_z % 32 != 0)
-  {
-    ROS_ERROR("Failed to initialize yak_ros node: Number of voxels in each dimension must be multiples of 32.");
-    return -1;
-  }
 
   pnh.param<float>("volume_resolution", kinfu_params.volume_resolution, 0.002f);
   kinfu_params.volume_dims = cv::Vec3i(volume_x, volume_y, volume_z);
